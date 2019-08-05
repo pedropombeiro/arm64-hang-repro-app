@@ -14,5 +14,5 @@ android {
 dependencies {
     implementation 'com.facebook.react:react-native:+' // from node_modules
 
-    implementation(group: 'status-im', name: 'status-go', version: '9de77b2', ext: 'aar')
+    implementation(name: 'library', ext: 'aar')
 }

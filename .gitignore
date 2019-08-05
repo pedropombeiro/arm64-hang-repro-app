@@ -29,6 +29,8 @@ build/
 .gradle
 local.properties
 *.iml
+**/android/.project
+**/android/.settings/org.eclipse.buildship.core.prefs
 
 # node.js
 #
@@ -54,3 +56,6 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+
+# VSCode
+.vscode/settings.json

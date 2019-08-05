@@ -8,8 +8,6 @@ import com.facebook.react.uimanager.ViewManager;
 import java.util.Collections;
 import java.util.List;
 
-import statusgo.Statusgo;
-
 public class StatusPackage implements ReactPackage {
 
     public StatusPackage() {

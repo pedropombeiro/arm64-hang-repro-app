@@ -7,7 +7,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
-import statusgo.Statusgo;
+import library.Library;
 
 class StatusModule extends ReactContextBaseJavaModule implements LifecycleEventListener {
 
@@ -30,7 +30,7 @@ class StatusModule extends ReactContextBaseJavaModule implements LifecycleEventL
     @Override
     public void onHostResume() {  // Activity `onResume`
         module = this;
-        Statusgo.setMobileSignalHandler(null); // NOTE: Commenting this line makes the app run without hanging at startup
+        Library.doSomething(); // NOTE: Commenting this line makes the app run without hanging at startup
     }
 
     @Override
@@ -41,9 +41,5 @@ class StatusModule extends ReactContextBaseJavaModule implements LifecycleEventL
     @Override
     public void onHostDestroy() {
 
-    }
-
-    public void handleSignal(String jsonEvent) {
-        Log.d(TAG, "Signal event: " + jsonEvent);
     }
 }

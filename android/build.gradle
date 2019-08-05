@@ -37,13 +37,6 @@ subprojects {
 }
 
 allprojects {
-    beforeEvaluate {
-        //System.env.STATUS_GO_ANDROID_LIBDIR = '/nix/store/ys06ch75xjwpjg0bm9qqm6snmmrjxv7f-status-go-9de77b21b22aeca3c71050ed4f7809f500e63191-9de77b2-android/lib'
-        if (System.env.STATUS_GO_ANDROID_LIBDIR == null || System.env.STATUS_GO_ANDROID_LIBDIR == "") {
-            throw new GradleException('STATUS_GO_ANDROID_LIBDIR environment variable is not valid!')
-        }
-    }
-
     repositories {
         mavenLocal()
         google()
@@ -52,7 +45,7 @@ allprojects {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
-        // for geth, function, and status-go
-        flatDir { dirs "libs", System.env.STATUS_GO_ANDROID_LIBDIR }
+        // Replace path with location of .aar file
+        flatDir { dirs "libs", "$rootDir/libs" }
     }
 }
