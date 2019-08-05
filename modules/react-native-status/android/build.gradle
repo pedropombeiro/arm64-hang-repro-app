@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    implementation 'com.facebook.react:react-native:+' // from node_modules
+
+    implementation(group: 'status-im', name: 'status-go', version: '9de77b2', ext: 'aar')
+}

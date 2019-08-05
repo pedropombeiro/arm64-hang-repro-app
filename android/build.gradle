@@ -3,24 +3,47 @@
 buildscript {
     ext {
         buildToolsVersion = "28.0.3"
-        minSdkVersion = 16
+        minSdkVersion = 23
         compileSdkVersion = 28
         targetSdkVersion = 28
         supportLibVersion = "28.0.0"
+        gradleBuildTools = 'com.android.tools.build:gradle:3.4.1'
     }
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.4.0")
+        classpath("com.android.tools.build:gradle:3.4.1")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
 
+subprojects {
+    afterEvaluate {
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion 28
+                buildToolsVersion "28.0.3"
+
+                defaultConfig {
+                    targetSdkVersion 28
+                }
+            }
+        }
+    }
+}
+
 allprojects {
+    beforeEvaluate {
+        //System.env.STATUS_GO_ANDROID_LIBDIR = '/nix/store/ys06ch75xjwpjg0bm9qqm6snmmrjxv7f-status-go-9de77b21b22aeca3c71050ed4f7809f500e63191-9de77b2-android/lib'
+        if (System.env.STATUS_GO_ANDROID_LIBDIR == null || System.env.STATUS_GO_ANDROID_LIBDIR == "") {
+            throw new GradleException('STATUS_GO_ANDROID_LIBDIR environment variable is not valid!')
+        }
+    }
+
     repositories {
         mavenLocal()
         google()
@@ -29,5 +52,7 @@ allprojects {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
+        // for geth, function, and status-go
+        flatDir { dirs "libs", System.env.STATUS_GO_ANDROID_LIBDIR }
     }
 }

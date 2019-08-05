@@ -1,3 +1,5 @@
 rootProject.name = 'arm64test'
 
 include ':app'
+include ':react-native-status'
+project(':react-native-status').projectDir = new File(rootProject.projectDir, '../modules/react-native-status/android')

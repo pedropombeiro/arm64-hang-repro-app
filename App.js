@@ -21,8 +21,8 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
+        <Text style={styles.welcome}>Welcome to the arm64 React Native test app!</Text>
+        <Text style={styles.instructions}>If you see this message, that means that the hang did not occur (so you're likely not running the arm64 version of the app)</Text>
         <Text style={styles.instructions}>{instructions}</Text>
       </View>
     );
