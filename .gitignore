@@ -22,6 +22,9 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
+# VSCode
+.vscode/settings.json
+
 # Android/IntelliJ
 #
 build/
@@ -57,5 +60,5 @@ buck-out/
 # Bundle artifact
 *.jsbundle
 
-# VSCode
-.vscode/settings.json
+# CocoaPods
+/ios/Pods/

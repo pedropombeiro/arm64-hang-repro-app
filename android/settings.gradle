@@ -1,5 +1,5 @@
 rootProject.name = 'arm64test'
-
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 include ':react-native-status'
 project(':react-native-status').projectDir = new File(rootProject.projectDir, '../modules/react-native-status/android')
